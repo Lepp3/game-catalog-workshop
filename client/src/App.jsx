@@ -1,5 +1,7 @@
 
 
+import Header from './components/header-component/Header'
+import Home from './components/home/Home'
 import './App.css'
 
 function App() {
@@ -7,7 +9,10 @@ function App() {
 
   return (
     <div id="box">
-       
+       <Header/>
+       <main id="main-content">
+        <Home/>
+        </main>
     </div>
   )
 }
