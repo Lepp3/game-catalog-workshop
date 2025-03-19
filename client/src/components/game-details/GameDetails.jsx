@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router";
 import gameService from "../../services/gameService";
 import ShowComments from "../show-comments/ShowComments";
 import CreateComment from "../create-comments/CreateComment";
+import commentService from "../../services/commentService";
 
 
 export default function GameDetails({
@@ -11,6 +12,7 @@ export default function GameDetails({
 }){
     const {gameId} = useParams();
     const navigate = useNavigate();
+    const [comments,setComments] = useState([]);
 
     const [game,setGame] = useState({});
 
@@ -18,6 +20,11 @@ export default function GameDetails({
         gameService.getOneGame(gameId)
         .then(result=>{
             setGame(result)
+        })
+
+        commentService.getAllComments(gameId)
+        .then(result=>{
+            setComments(result)
         })
     },[])
 
@@ -51,7 +58,7 @@ export default function GameDetails({
         </p>
 
         {/* <!-- Bonus ( for Guests and Users ) --> */}
-        <ShowComments/>
+        <ShowComments comments={comments}/>
 
         {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
         <div className="buttons">

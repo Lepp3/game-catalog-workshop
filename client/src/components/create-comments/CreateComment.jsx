@@ -11,7 +11,7 @@ export default function CreateComment({
 
         const createdComment = await commentService.createComment(email,gameId,content);
 
-        console.log(createdComment);
+        
         
     }
 
