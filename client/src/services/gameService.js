@@ -24,6 +24,6 @@ export default {
         return  request.delete(`${baseUrl}/${gameId}`);
     },
     edit(gameId,gameData){
-        return request.put(`${baseUrl}/${gameId}`,gameData)
+        return request.put(`${baseUrl}/${gameId}`,{...gameData, _id: gameId})
     }
 }

@@ -7,7 +7,7 @@ import gameService from "../../services/gameService";
 export default function GameEdit(){
     const {gameId} = useParams();
     const navigate = useNavigate();
-    
+
     const [game,setGame] = useState({});
     
         useEffect(()=>{
@@ -17,8 +17,12 @@ export default function GameEdit(){
             })
         },[])
 
-        const editSubmitForm = (formData) =>{
-            console.log(Object.fromEntries(formData))
+        const editSubmitForm = async (formData) =>{
+           const gameData = Object.fromEntries(formData);
+
+           await gameService.edit(gameId,gameData);
+
+           navigate(`/games/${gameId}/details`);
         }
 
     return(
