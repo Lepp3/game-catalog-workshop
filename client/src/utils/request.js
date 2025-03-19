@@ -1,4 +1,4 @@
-export const request = async (method, url, data) =>{
+const request = async (method, url, data) =>{
 
     let options = {};
 
@@ -27,4 +27,12 @@ export const request = async (method, url, data) =>{
     const result = await response.json();
 
     return result
+};
+
+
+export default {
+    get: request.bind(null,'GET'),
+    post: request.bind(null,'POST'),
+    put: request.bind(null,'PUT'),
+    delete: request.bind(null,'DELETE'),
 }

@@ -1,14 +1,18 @@
-import { request } from "../utils/requester.js";
+import request from "../utils/request.js";
+
 
 const baseUrl = 'http://localhost:3030/jsonstore/games'
 
 export default {
-    getAllGames(){
-        
+    async getAllGames(){
+        const result = await request.get(baseUrl);
+        const games = Object.values(result);
 
-        return Object.values(result);
+        return games
     },
      create(gameData){
-        return request('POST',baseUrl,gameData);
+
+        return request.post(baseUrl,gameData)
+        
     }
 }

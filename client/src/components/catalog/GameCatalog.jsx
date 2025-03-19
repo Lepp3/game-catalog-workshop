@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, } from "react"
+import { Link } from "react-router";
 import gameService from "../../services/gameService.js";
 
 export function GameCatalog(){
 
-    const [games,setGames] = useState([]);
+   const [games,setGames] = useState([]);
 
     useEffect(()=>{
         gameService.getAllGames()
         .then(result=>{
-            setGames(result)
-            
+            setGames(result) 
         })
         
     },[])
@@ -18,36 +18,17 @@ export function GameCatalog(){
     return(
         <section id="catalog-page">
     <h1>All Games</h1>
-    {/* <!-- Display div: with information about every game (if any) --> */}
-    <div className="allGames">
+    {games.length> 0 ? games.map(game=><div key={game._id} className="allGames">
         <div className="allGames-info">
-            <img src="/images/avatar-1.jpg"/>
-            <h6>Action</h6>
-            <h2>Cover Fire</h2>
-            <a href="#" className="details-button">Details</a>
+            <img src={game.imageUrl}/>
+            <h6>{game.title}</h6>
+            <h2>{game.category}</h2>
+            <Link to={`/games/${game._id}/details`} className="details-button">Details</Link>
         </div>
 
-    </div>
-    <div className="allGames">
-        <div className="allGames-info">
-            <img src="/images/avatar-1.jpg"/>
-            <h6>Action</h6>
-            <h2>Zombie lang</h2>
-            <a href="#" className="details-button">Details</a>
-        </div>
-
-    </div>
-    <div className="allGames">
-        <div className="allGames-info">
-            <img src="/images/avatar-1.jpg"/>
-            <h6>Action</h6>
-            <h2>MineCraft</h2>
-            <a href="#" className="details-button">Details</a>
-        </div>
-    </div>
-
-    {/* <!-- Display paragraph: If there is no games  --> */}
-    <h3 className="no-articles">No articles yet</h3>
+    </div>): <h3 className="no-articles">No articles yet</h3>}
+    
+    
 </section>
     )
 }
