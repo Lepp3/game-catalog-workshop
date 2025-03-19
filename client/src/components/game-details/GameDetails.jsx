@@ -38,6 +38,11 @@ export default function GameDetails({
         await gameService.deleteOne(gameId);
         navigate('/games');
         
+    };
+
+
+    const commentCreateHandler = (newComment) =>{
+        setComments(state=>[...state,newComment])
     }
 
     
@@ -74,7 +79,11 @@ export default function GameDetails({
 
     {/* <!-- Bonus --> */}
     {/* <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
-    <CreateComment email={email} gameId={gameId}/>
+    <CreateComment 
+    email={email} 
+    gameId={gameId}
+    onCreate={commentCreateHandler}
+    />
 
 </section>
     )
