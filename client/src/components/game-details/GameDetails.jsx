@@ -6,7 +6,9 @@ import ShowComments from "../show-comments/ShowComments";
 import CreateComment from "../create-comments/CreateComment";
 
 
-export default function GameDetails(){
+export default function GameDetails({
+    email,
+}){
     const {gameId} = useParams();
     const navigate = useNavigate();
 
@@ -65,7 +67,7 @@ export default function GameDetails(){
 
     {/* <!-- Bonus --> */}
     {/* <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
-    <CreateComment/>
+    <CreateComment email={email} gameId={gameId}/>
 
 </section>
     )
