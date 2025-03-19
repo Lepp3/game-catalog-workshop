@@ -10,6 +10,11 @@ export default {
 
         return games
     },
+    async getOneGame(gameId){
+        const result = await request.get(`${baseUrl}/${gameId}`);
+
+        return result
+    },
      create(gameData){
 
         return request.post(baseUrl,gameData)
