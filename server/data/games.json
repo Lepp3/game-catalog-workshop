@@ -1,0 +1,18 @@
+{
+    "10f1136f-e9a5-4d6d-b8b9-4b65367d45e3": {
+        "title": "Counter-Strike 1.6",
+        "category": "FPS",
+        "maxLevel": "1000",
+        "imageUrl": "https://content.instructables.com/F2D/Z30W/GFA43CBB/F2DZ30WGFA43CBB.bmp?auto=webp",
+        "summary": "The game pits two teams—the Counter-Terrorists and Terrorists—against each other in objective-based game modes. The most common objectives are bomb defusal and hostage rescue, each with designated maps. Players begin with a knife and pistol in each round; however, they can purchase weapons and equipment from the buy menu. They can earn money through eliminating an enemy or accomplishing a goal, but are fined for injuring a teammate if friendly fire is enabled. If eliminated, players do not respawn until the end of the round.",
+        "_id": "10f1136f-e9a5-4d6d-b8b9-4b65367d45e3"
+    },
+    "171b298b-c46d-4cf6-8bec-ec8a8904c187": {
+        "title": "League of Legends",
+        "category": "MOBA",
+        "maxLevel": "9999",
+        "imageUrl": "https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/09/league-of-legends.jpeg?fit=1607%2C895&ssl=1",
+        "summary": "League of Legends is a team-based strategy game where two teams of five powerful champions face off to destroy the other's base. Choose from over 140 champions to make epic plays, secure kills, and take down towers as you battle your way to victory.",
+        "_id": "171b298b-c46d-4cf6-8bec-ec8a8904c187"
+    }
+}
