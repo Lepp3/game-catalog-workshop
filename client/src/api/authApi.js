@@ -30,3 +30,15 @@ export const useLogin = () =>{
         login
     }
 }
+
+export const useRegister = ()=>{
+
+    const register = async (email,password)=>{
+        return request.post(`${baseUrl}/register`,{email,password})
+    }
+
+    return{
+        register
+    }
+
+}
