@@ -2,18 +2,11 @@ import { useEffect, useState, } from "react"
 import { Link } from "react-router";
 import gameService from "../../services/gameService.js";
 import GameCatalogItem from "./GameCatalogItem.jsx";
+import { useGames } from "../../api/gameApi.js";
 
 export function GameCatalog(){
 
-   const [games,setGames] = useState([]);
-
-    useEffect(()=>{
-        gameService.getAllGames()
-        .then(result=>{
-            setGames(result) 
-        })
-        
-    },[])
+    const {games} = useGames();
 
 
     return(
