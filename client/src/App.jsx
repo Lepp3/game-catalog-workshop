@@ -10,6 +10,7 @@ import GameCreate from './components/game-create/GameCreate'
 import GameDetails from './components/game-details/GameDetails'
 import GameEdit from './components/game-edit/GameEdit'
 import { useState } from 'react'
+import Logout from './components/logout/Logout'
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
           <Route path='/games/:gameId/details' element={<GameDetails />}/>
           <Route path='/games/:gameId/edit' element={<GameEdit/>}/>
           <Route path='/games/create' element={<GameCreate/>}/>
-          
+          <Route path='/logout' element={<Logout/>} />
 
         </Routes>
         
