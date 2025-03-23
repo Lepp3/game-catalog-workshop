@@ -1,5 +1,11 @@
-export default function Logout(){
-    
+import { Navigate } from "react-router";
+import { useLogout } from "../../api/authApi"
 
-    return()
+export default function Logout(){
+    const { isLoggedOut } = useLogout();
+
+    return isLoggedOut
+    ? <Navigate to="/"/>
+    : null;
+    //TODO : IMPLEMENT SPINNER INSTEAD OF NULL
 }

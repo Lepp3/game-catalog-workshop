@@ -6,4 +6,5 @@ export const UserContext = createContext({
     accessToken: '',
     username: '',
     userLoginHandler: ()=> null,
+    userLogoutHandler: ()=>null
 })

@@ -16,10 +16,16 @@ const request = async (method, url, data, options = {}) =>{
         }
     }
     
-
+    
     const response = await fetch (url,options);
 
+    const responseContentType = response.headers.get('Content-Type');
+    
+    if(!responseContentType){
+        return
+    }
 
+    
     const result = await response.json();
 
     return result
