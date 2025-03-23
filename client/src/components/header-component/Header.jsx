@@ -13,16 +13,19 @@ export default function Header(){
             <nav>
                 <Link to="/games">All games</Link>
                 {!email ?
-                <div id="guest">
+                (<div id="guest">
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
-            </div>
+            </div>)
                   :
-                  <div id="user">
+                 ( <div id="user">
                  <Link to="/games/create">Create Game</Link>
                  <Link to="/logout">Logout</Link>
+                 <div>
+                    {email}
+                 </div>
              </div>
-             }
+             )}
                 {/* <!-- Logged-in users --> */}
                
                 {/* <!-- Guest users --> */}
