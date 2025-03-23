@@ -22,12 +22,11 @@ export default function useAuth(){
 
     return{
         ...authData,
-        accessToken,
         request: {
-            get: requestWrapper.bind('GET'),
-            post: requestWrapper.bind('POST'),
-            put: requestWrapper.bind('PUT'),
-            delete: requestWrapper.bind('DELETE'),
+            get: requestWrapper.bind(null,'GET'),
+            post: requestWrapper.bind(null,'POST'),
+            put: requestWrapper.bind(null,'PUT'),
+            delete: requestWrapper.bind(null,'DELETE'),
 
         }
     }
