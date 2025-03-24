@@ -13,10 +13,12 @@ import useAuth from "../../hooks/useAuth";
 export default function GameDetails(){
     const { gameId } = useParams();
     const navigate = useNavigate();
-    const { email } = useAuth()
+    const { email, _id: userId } = useAuth()
     const [comments,setComments] = useState([]);
     const { deleteGame } = useDeleteGame()
     const {game} = useGame(gameId);
+
+    const isOwner = userId === game._ownerId;
 
     useEffect(()=>{
         
@@ -64,7 +66,7 @@ export default function GameDetails(){
         <ShowComments comments={comments}/>
 
         {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-        <div className="buttons">
+        {isOwner && ( <div className="buttons">
             <Link to={`/games/${gameId}/edit`} className="button">Edit</Link>
             <button 
             className="button"
@@ -72,7 +74,8 @@ export default function GameDetails(){
             >
                 Delete
             </button>
-        </div>
+        </div>)}
+       
     </div>
 
     {/* <!-- Bonus --> */}
