@@ -47,7 +47,29 @@ export const useGame = (gameId) =>{
     }
 };
 
+export const useLatestGames = () =>{
+    const [latestGames, setLatestGames] = useState([]);
 
+    const PAGE_SIZE = 3;
+
+    
+
+
+    useEffect(()=>{
+
+        const searchParams = new URLSearchParams({
+            sortBy: '_createdOn desc',
+            pageSize: PAGE_SIZE,
+        });
+
+        request.get(`${baseUrl}?${searchParams.toString()}`)
+        .then(setLatestGames)
+    },[])
+
+    return{
+        latestGames
+    }
+}
 
 
 
