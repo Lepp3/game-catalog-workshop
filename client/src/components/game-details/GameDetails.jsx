@@ -77,7 +77,7 @@ export default function GameDetails(){
     <CreateComment 
     email={email} 
     gameId={gameId}
-    onCreate={commentCreateHandler}
+    // onCreate={commentCreateHandler}
     />
 
 </section>

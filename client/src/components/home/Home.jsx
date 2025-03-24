@@ -20,7 +20,7 @@ export default function Home(){
         <h1>Latest Games</h1>
 
        
-        {latestGames.map(game=><div className="game">
+        {!latestGames.length ? (<p className="no-articles">No games yet</p>) : (latestGames.map(game=><div className="game" key={game._id}>
             <div className="image-wrap">
                 <img src={game.imageUrl}/>
             </div>
@@ -31,9 +31,11 @@ export default function Home(){
             <div className="data-buttons">
                 <Link to={`/games/${game._id}/details`} className="btn details-btn">Details</Link>
             </div>
-        </div>)}
+        </div>))}
+
+        {}
         
-        {latestGames === 0 && (<p className="no-articles">No games yet</p>)}
+        
         
     </div>
 </section>
